@@ -1,0 +1,51 @@
+﻿
+@{
+    ViewBag.Title = "Checkout2";
+}
+
+<link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+<script src="~/Scripts/bootstrap.min.js"></script>
+<script src="~/Scripts/jquery-1.10.2.min.js"></script>
+
+<button class="btn btn-info" style="margin-bottom:10px; margin-right:10px" onclick="logout()">Logout</button>
+<h2 class="text-center">Please enter the delivery details</h2>
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-4 col-md-offset-1">
+            <h4>First name:</h4> <input class="form-control" type="text" name="name" id="name" style="width: 400px; height: 50px;font-size:x-large">
+            <h4>Last name:</h4><input class="form-control" type="text" name="address" id="address" style="width: 400px;height: 50px;font-size:x-large">
+            <h4>Phone number:</h4><input class="form-control" type="text" name="address" id="address" style="width: 400px;height: 50px;font-size:x-large">
+            <h4>Email Address:</h4><input class="form-control" type="text" name="address" id="address" style="width: 400px;height: 50px;font-size:x-large">
+            <button type="button" class="btn btn-info" style="margin-top:20px;width:300px;height:50px"><h3 style="margin-top:8px" onclick="place()">Place Order</h3></button>
+        </div>
+        <div class="col-md-4 col-md-offset-1">
+            <h4>Street Address:</h4> <input class="form-control" type="text" name="name" id="name" style="width: 400px; height: 50px;font-size:x-large">
+            <h4>Apartment:</h4><input class="form-control" type="text" name="address" id="address" style="width: 400px;height: 50px;font-size:x-large">
+            <h4>City:</h4><input class="form-control" type="text" name="address" id="address" style="width: 400px;height: 50px;font-size:x-large">
+            <div>
+                <h4>State:</h4><input type="text" name="address" id="address" style="width: 100px;height: 50px;font-size:x-large">
+                <h4>Pincode:</h4><input type="text" name="address" id="address" style="width: 100px;height: 50px;font-size:x-large">
+            </div>
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript">
+
+    function logout() {
+        sessionStorage.Index = "";
+
+        window.location.href = "/Home/Logout";
+
+    }
+
+    function place() {
+        alert("place");
+        window.location.href = "/Home/ClearCart";
+    }
+</script>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
