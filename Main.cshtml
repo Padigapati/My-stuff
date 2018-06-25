@@ -1,0 +1,95 @@
+﻿
+@{
+    ViewBag.Title = "Main";
+}
+
+
+<img src="~/Img/img33.jpg" alt="" style="width:1200px; height:500px; align-content:center" />
+
+<div class="container">
+    <h1 class="text-center" style="margin-top:5%">Shop by Categories</h1>
+</div>
+<div class="container" style="margin-top:3%">
+    <p>_________________________________________________________________________________________________________________________________________</p>
+
+    <div class="row" style="margin-top:50px">
+        <div class="col-md-3 ">
+            <button type="submit">
+                <img src="~/Img/img7.jpg" style="width:200px; height:200px;" onclick="send2()" />
+            </button>
+            <h2 style="text-align:center">@Html.ActionLink("Food", "productIndex", new { result = "Food" })</h2>
+        </div>
+        <div class="col-md-3 " style="margin-left:100px">
+
+            <img src="~/Img/img8.jpg" style="width:200px; height:200px;" onclick="send2()" />
+
+            <h2 style="text-align:center">@Html.ActionLink("Health & Vitamins", "productIndex", new { result = "HV" })</h2>
+        </div>
+        <div class="col-md-3 " style="margin-left:100px">
+
+            <img src="~/Img/img9.jpg" style="width:200px; height:200px;" onclick="send3()" />
+
+            <h2 style="text-align:center">@Html.ActionLink("Gift & Presentations", "productIndex", new { result = "GP" })</h2>
+        </div>
+    </div>
+</div>
+
+<br />
+<p>_________________________________________________________________________________________________________________________________________</p>
+<div class="container" style="margin-top:10%">
+    <div class="row">
+        <div class="col-md-3 ">
+            
+            <img src="~/Img/img10.jpg" style="width:200px; height:200px;" onclick="send4()"/>
+              
+            <h2 style="text-align:center">@Html.ActionLink("Jewellery & Watches", "productIndex", new { result = "JW" })</h2>
+        </div>
+
+        <div class="col-md-3 " style="margin-left:100px">
+            
+            <img src="~/Img/img11.jpg" style="width:200px; height:200px;" onclick="send5()"/>
+               
+            <h2 style="text-align:center">@Html.ActionLink("Clothing", "productIndex", new { result = "Clothing" })</h2>
+        </div>
+        <div class="col-md-3 " style="margin-left:100px">
+            
+            <img src="~/Img/img12.jpg" style="width:200px; height:200px;" onclick="send6()"/>
+               
+            <h2 style="text-align:center">@Html.ActionLink("Electronics", "productIndex", new { result = "Electronics" })</h2>
+        </div>
+    </div>
+</div>
+
+<br />
+<p>_________________________________________________________________________________________________________________________________________</p>
+<div class="container" style="margin-top:10%">
+    <div class="row">
+        <div class="col-md-3 ">
+            
+            <img src="~/Img/img13.jpg" style="width:200px; height:200px;" onclick="send7()"/>
+                
+            <h2 style="text-align:center">@Html.ActionLink("Video Games", "productIndex", new { result = "VG" })</h2>
+        </div>
+
+        <div class="col-md-3 " style="margin-left:100px">
+            
+            <img src="~/Img/img14.jpg" style="width:200px; height:200px;" onclick="send8()"/>
+               
+            <h2 style="text-align:center">@Html.ActionLink("Art & Crafts", "productIndex", new { result = "AC" })</h2>
+        </div>
+        <div class="col-md-3 " style="margin-left:100px">
+            <img src="~/Img/img15.jpg" style="width:200px; height:200px;" onclick="send8()" />
+            <h2 style="text-align:center">@Html.ActionLink("Beauty products", "productIndex", new { result = "Beauty" })</h2>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <script type="text/javascript">
+        function send() {
+            window.location.href = "/Product/productIndex";  
+        }
+    </script>
+
+    @Scripts.Render("~/bundles/jqueryval")
+}

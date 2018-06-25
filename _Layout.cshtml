@@ -1,0 +1,93 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - My ASP.NET Application</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+    <script src="~/Scripts/bootstrap.min.js"></script>
+    <script src="~/Scripts/jquery-1.10.2.min.js"></script>
+
+</head>
+<body>
+    <div class="container text-center">
+        <form class="navbar-form nav-justified">
+            <div class="form-group">
+                <input type="text" id="sea" name="result" class="form-control" placeholder="Search" style="width:300px;height:50px;font-size:large">
+            </div>
+            <input type="button" value="Search" class="btn btn-danger" style="width:100px;height:50px" onclick="search2()">
+            
+        </form>
+    </div>
+
+    <div class="container" style="margin-bottom: 20px; color:black">
+        <div class="col-md-8 col-md-offset-2">
+
+            <ul class="nav nav-pills nav-justified nav-stacked navbar-brand navbar-static-top">
+                <li><a href="/Home/Main"><h3><span class="glyphicon glyphicon-home"></span> </h3></a></li>
+                <li><a href="/Home/Index"><h3>LogIn  <span class="glyphicon glyphicon-log-in"></span> </h3></a></li>
+
+                <li>
+                    <a href="/Home/Cart">
+                        <h3>
+                            Cart  <span class="glyphicon glyphicon-shopping-cart"></span>
+                        </h3>
+                    </a>
+                </li>
+                <li><a href="/Home/Contact"><h3>Contact</h3></a></li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="container body-content">
+        @RenderBody()
+        <hr />
+        <footer></footer>
+    </div>
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+</body>
+</html>
+
+<script type="text/javascript">
+    function search2() {
+        alert('abc');
+        var x = document.getElementById('sea').value;
+        alert(x);
+        if (x != "") {
+            window.location.href = "/Home/productIndex?result=" + x;
+        }
+    }
+
+    function search() {
+        var x = document.getElementById('sea').value;
+        window.location.href = "/Home/productIndex?result=" + x;
+    }
+        $('#sea').autocomplete({
+            source: function (request, response) {
+                $.ajax({
+                    url: @Url.Action("GetSearchValue","Home"), 
+                    dataType: "json",
+                    data: { search: $('#sea').val() },
+                    success: function (data) {
+                        response($.map(data, function (item) {
+                            return { label: item.Name, value: item.Name };
+                        }));
+                    },
+                    error: function (xhr, status, error) {
+                        alert("Error");
+                    }
+                });
+            }
+        })
+    
+</script>
+
+@section Scripts {
+
+    @Scripts.Render("~/bundles/jqueryval")
+}
